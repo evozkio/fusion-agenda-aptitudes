@@ -1,0 +1,16 @@
+.contenedor-body{
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    .contenedor-filtro{
+        height: 100%;
+        background-color: pink;
+    }
+    .contenedor-mostrar-datos{
+        height: 100%;
+        .tab-container{
+            display: block;
+            height: 100%;
+        }
+    }
+}

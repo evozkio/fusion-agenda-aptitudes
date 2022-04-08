@@ -1,0 +1,37 @@
+<div class="contenedor-principal">
+      <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col"></th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Alias</th>
+                <th scope="col">Telefono</th>
+                <th scope="col">Comercial</th>
+                <th scope="col">Email</th>
+                <th scope="col">Provincia</th>
+                <th scope="col">Localidad</th>
+                <th scope="col">CP</th>
+                <th scope="col">Direccion</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody id="cuerpo-tabla">
+            <tr *ngFor="let number of numbers | slice: (currentPage-1)*numeroElementos : ((currentPage-1)*numeroElementos)+numeroElementos">
+                <td scope="col">74.10</td>
+                <td scope="col">REPUESTOS VEGA</td>
+                <td scope="col">VEGA</td>
+                <td scope="col">955840150</td>
+                <td scope="col">ENRIQUE</td>
+                <td scope="col">recambiosvega@gmail.com</td>
+                <td scope="col">Sevilla</td>
+                <td scope="col">Arahal</td>
+                <td scope="col">41600</td>
+                <td scope="col">C/ CRUZ DE LA CAVA, 22</td>
+                <td scope="col">N</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <pagination class="paginacion" [totalItems]="totalItems" [(ngModel)]="currentPage" [itemsPerPage]="numeroElementos" [maxSize]="7"></pagination>
+        </tfoot>
+      </table>
+  </div>
