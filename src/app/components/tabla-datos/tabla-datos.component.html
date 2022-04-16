@@ -1,0 +1,52 @@
+<div class="contenedor-principal">
+  <div class="contenedor-tabla">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col" class="numero" th>
+          <th scope="col" class="nombre">Nombre</th>
+          <th scope="col" class="comercial">Comercial</th>
+          <th scope="col" class="email">Email</th>
+          <th scope="col" class="telefono">Telefono</th>
+          <th scope="col" class="localidad">Localidad</th>
+          <th scope="col" class="provincia">Provincia</th>
+        </tr>
+      </thead>
+      <tbody id="cuerpo-tabla">
+        <tr class="datos" *ngFor="let item of tareaSvc.clientes| slice: (tareaSvc.pagina-1)*this.numeroElementos : ((tareaSvc.pagina-1)*this.numeroElementos)+this.numeroElementos">
+          <td scope="col" class="numero">
+            {{item.numero}}
+          </td>
+          <th scope="col" class="nombre">
+            <span class="text-truncate ">
+              {{item.nombre}}
+            </span>
+          </th>
+          <td scope="col" class="comercial">
+            {{item.comercial}}
+          </td>
+          <td scope="col" class="email">
+            {{cogerPrimerElementoComa(item.email)}}
+          </td>
+          <td scope="col" class="telefono">
+            {{item.telefono}}
+          </td>
+          <td scope="col" class="localidad"> 
+            {{item.localidad}}
+          </td>
+          <td scope="col" class="provincia">
+            {{item.provincia}}
+          </td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <div>Lineas: {{tareaSvc.clientes.length}}</div>
+        <pagination class="paginacion" [totalItems]="tareaSvc.filtroTarea.length" [boundaryLinks]="true"  
+          previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;" [(ngModel)]="tareaSvc.pagina" 
+          [itemsPerPage]="numeroPorPagina()"
+          [maxSize]="7">
+        </pagination>
+      </tfoot>
+    </table>
+  </div>
+</div>

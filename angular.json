@@ -1,9 +1,12 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": "152a2c5b-9f75-4083-8728-4c6a158e1516"
+  },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "fusion-agenda-aptitudes": {
+    "prueba-aptitudes-angular": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -20,20 +23,21 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/fusion-agenda-aptitudes",
+            "outputPath": "dist/prueba-aptitudes-angular",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
             "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/@popperjs/core/dist/umd/popper.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -72,10 +76,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "fusion-agenda-aptitudes:build:production"
+              "browserTarget": "prueba-aptitudes-angular:build:production"
             },
             "development": {
-              "browserTarget": "fusion-agenda-aptitudes:build:development"
+              "browserTarget": "prueba-aptitudes-angular:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -83,7 +87,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "fusion-agenda-aptitudes:build"
+            "browserTarget": "prueba-aptitudes-angular:build"
           }
         },
         "test": {
@@ -107,5 +111,5 @@
       }
     }
   },
-  "defaultProject": "fusion-agenda-aptitudes"
+  "defaultProject": "prueba-aptitudes-angular"
 }

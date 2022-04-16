@@ -1,0 +1,55 @@
+.contenedor-principal{
+    height: 100%;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1fr 100px;
+    background-color:  rgba(255, 255, 255, 0.863);
+    border-radius: 5px;
+    padding: 5px 10px;
+    .contenedor-selector-filtro{
+        overflow-y: auto;
+        height: 100%;
+        display: flex;
+        padding: 0 5px;
+        gap: 5px;
+
+      
+        
+
+        .contenedor-input-estados{
+            display: flex;
+            justify-content: space-between;
+            border-radius: 5px;
+            background-color: white;
+            .contenedor-checkbox{
+                padding: 5px 10px;
+                display: flex;
+                gap: 10px;
+            }
+        }
+        input.form-control{
+            box-shadow: none;
+        }
+        .form-select{
+            box-shadow: none;
+        }
+     
+        .btn-outline-danger{
+            background-color: white;
+            box-shadow: none;       
+        }
+        .btn-outline-danger:hover{
+            background-color: red;
+        }
+
+
+    }
+    .contenedor-botonera{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        button{
+            width: 100%;
+        }
+    }
+}

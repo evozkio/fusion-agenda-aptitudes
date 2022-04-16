@@ -1,16 +1,27 @@
-.contenedor-body{
+.contenedor-principal{
+    overflow-y: hidden;
     height: 100vh;
+    background-image: url(https://i.stack.imgur.com/vhoa0.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
     display: grid;
-    grid-template-columns: 300px 1fr;
-    .contenedor-filtro{
+    grid-template-rows: 100px 1fr;
+  
+    .contenedor-body{
         height: 100%;
-        background-color: pink;
-    }
-    .contenedor-mostrar-datos{
-        height: 100%;
-        .tab-container{
-            display: block;
+        overflow-y: hidden;
+        padding: 5px;
+        display: grid;
+        grid-template-columns: 500px 1fr;
+        gap: 10px;
+        .contenedor-filtro{
             height: 100%;
+            overflow: hidden;
+        }
+        .contenedor-tabla-datos{
+            height: 100%;
+            overflow-y: hidden;
         }
     }
 }

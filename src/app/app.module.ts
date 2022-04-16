@@ -1,30 +1,42 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { TooltipModule } from 'ngx-bootstrap/tooltip';
+import {NgxPaginationModule} from 'ngx-pagination';
 import { FormsModule } from "@angular/forms";
 
 import { AppComponent } from './app.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FiltroComponent } from './components/filtro/filtro.component';
-import { DatosFiltroComponent } from './components/datos-filtro/datos-filtro.component';
-import { DatoClienteComponent } from './components/dato-cliente/dato-cliente.component';
-import { CabeceraComponent } from './components/cabecera/cabecera.component';
-import { TabsModule } from 'ngx-bootstrap/tabs';
+import { TablaDatosComponent } from './components/tabla-datos/tabla-datos.component';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { PopoverModule } from 'ngx-bootstrap/popover';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
+import { TareaService } from './services/tarea.service';
+import { ClienteService } from "./services/cliente.service";
+import { HttpClientModule } from "@angular/common/http";
+import { DatosClientesComponent } from './datos-clientes/datos-clientes.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FiltroComponent,
-    DatosFiltroComponent,
-    DatoClienteComponent,
-    CabeceraComponent
+    TablaDatosComponent,
+    DatosClientesComponent
   ],
   imports: [
     FormsModule,
     BrowserModule,
-    TabsModule.forRoot(),
-    PaginationModule.forRoot()
+    TooltipModule.forRoot(),
+    BrowserAnimationsModule,
+    BsDatepickerModule.forRoot(),
+    FontAwesomeModule,
+    PopoverModule.forRoot(),
+    NgxPaginationModule,
+    PaginationModule.forRoot(),
+    HttpClientModule
   ],
-  providers: [],
+  providers: [TareaService, ClienteService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
