@@ -42,10 +42,11 @@
       </tbody>
       <tfoot>
         <div>Lineas: {{tareaSvc.clientes.length}}</div>
-        <pagination class="paginacion" [totalItems]="tareaSvc.clientes.length" [boundaryLinks]="true"  
+        <pagination class="paginacion my-pagination" [totalItems]="tareaSvc.clientes.length" [boundaryLinks]="true"  
           previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;" [(ngModel)]="tareaSvc.pagina" 
           [itemsPerPage]="numeroPorPagina()"
-          [maxSize]="7">
+          [maxSize]="7"
+          >
         </pagination>
       </tfoot>
     </table>
