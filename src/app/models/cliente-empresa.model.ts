@@ -1,4 +1,5 @@
 export class ClienteEmpresa{
+    public id:string;
 
     public numero: string;
 
@@ -18,9 +19,11 @@ export class ClienteEmpresa{
 
     public activo: boolean;
     public notas: string;
+    
 
 
     constructor(json:any ){
+       this.id = json.id ?? '';
        this.numero = json.numero ?? '';
        this.alias = json.alias ?? '';
        this.nombre = json.nombre ?? '';

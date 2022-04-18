@@ -1,29 +1,31 @@
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Injectable} from "@angular/core";
+import * as CryptoJS from 'crypto-js';
+import { calcPossibleSecurityContexts } from "@angular/compiler/src/template_parser/binding_parser";
 
 @Injectable()
 export class ClienteService{
 
   private url: string = 'https://www.azurglobal.es/apiPracticas/clientes/';
   private cabecera: any = {};
+  private nombre: string = 'CARLOS';
+  private fecha:Date = new Date (Date.now());
+
 
   constructor(private http: HttpClient) {
-    let token = 'c1ab9d186ebcde1055548c68cce2591c49837e694b86365d5d22d321d7a6b2cb917617b86f6e92ccab729879c3415837';
-
+    let anio = this.fecha.getFullYear();
+    let mes = this.fecha.getMonth() < 9 ? '0'+(this.fecha.getMonth()+1) : this.fecha.getMonth()+1;
+    let dia = this.fecha.getDate() < 9 ? '0'+this.fecha.getDate() : this.fecha.getDate();
+    let mensaje = this.nombre+anio+mes+dia;
+    var token = CryptoJS.SHA384(mensaje).toString();
 
     this.cabecera = {'X-Auth' : token}
   }
 
   getCliente(parametros: any):Observable<any>{
-    const filtros = {
-      alias : '',
-      activo: 1,
-      provincia: '',
-      documento: '',
-      codigo: ''
-    }
-    return this.http.get<any>('https://www.azurglobal.es/apiPracticas/clientes/',{headers: this.cabecera, params: filtros});
+
+    return this.http.get<any>('https://www.azurglobal.es/apiPracticas/clientes/',{headers: this.cabecera, params: parametros});
   }
 
 }

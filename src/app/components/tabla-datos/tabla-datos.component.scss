@@ -1,14 +1,15 @@
 .contenedor-principal{
     height: 100%;
     overflow-y: hidden;
-    display: grid;
-    background-color: rgba(255, 255, 255, 0.863);
+    background-color: #251c1c;
     border-radius: 5px;
+    *{
+        color: dodgerblue;
+    }
     .contenedor-tabla{
         height: 100%;
         overflow-y: hidden;
         padding: 5px;
-        // min-width: 1200px;
     
         table{
             height: 100%;
@@ -49,7 +50,7 @@
                 }
             }
             .datos:hover{
-                background-color: rgba(253, 106, 106, 0.836);
+                background-color: white;
             }
             tr{
                 display: grid;
