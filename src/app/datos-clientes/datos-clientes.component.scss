@@ -1,7 +1,9 @@
 .contenedor-principal{
     height: 100%;
     overflow-y: hidden;
-    display: grid;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     background-color: #362222;
     label{
         color: white;
@@ -9,6 +11,13 @@
     border-radius: 5px;
     padding: 10px;
     overflow-y: auto;
+    .contenedor{
+        display: flex;
+        gap: 5px;
+        div{
+            width: 100%;
+        }
+    }
     .botonera{
         padding: 10px;
         display: flex;

@@ -14,6 +14,7 @@ export class FiltroComponent {
   alias:string = '';
   documento:string = '';
   localidad:string = '';
+  activo:boolean = true;
 
 
 
@@ -31,7 +32,7 @@ export class FiltroComponent {
       codigo : this.codigo,
       alias : this.alias,
       documento: this.documento,
-      activo :'1'
+      activo : this.activo ? 1:0
     }
 
     this.clienteSvc.getCliente(filtros).subscribe(

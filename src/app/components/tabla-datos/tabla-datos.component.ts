@@ -84,5 +84,6 @@ export class TablaDatosComponent implements OnInit{
 
   seleccionCliente(cliente: ClienteEmpresa):void{
     this.tareaSvc.seleccionCliente =  new ClienteEmpresa (cliente);
+    this.tareaSvc.mostrarCliente = true;
   }
 }

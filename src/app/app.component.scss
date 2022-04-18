@@ -2,10 +2,6 @@
     overflow-y: hidden;
     height: 100vh;
     background-color: rgb(95, 94, 94);
-    // background-image: url(https://i.stack.imgur.com/vhoa0.jpg);
-    // background-repeat: no-repeat;
-    // background-attachment: fixed;
-    // background-size: cover;
     display: grid;
     grid-template-rows: 100px 1fr;
   
@@ -16,7 +12,7 @@
         display: flex;
         gap: 10px;
         .contenedor-datos-clientes{
-            width: 500px;
+            width: 600px;
             height: 100%;
             overflow: hidden;
         }
@@ -26,4 +22,8 @@
             overflow-y: hidden;
         }
     }
+}
+
+.noMostrar{
+    display: none;
 }

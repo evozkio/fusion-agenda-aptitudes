@@ -18,5 +18,8 @@ export class TareaService {
         "provincia":"",
         "cp":"",
         "activo": false,
-        "notas":""};
+        "notas":""
+    };
+    public mostrarCliente:boolean = false;
+
 }

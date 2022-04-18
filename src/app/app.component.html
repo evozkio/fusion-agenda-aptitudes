@@ -3,7 +3,7 @@
     <app-filtro class="contenedor-filtro"></app-filtro>
   </div>
   <div class="contenedor-body">
-    <app-datos-clientes class="contenedor-datos-clientes"></app-datos-clientes>
+    <app-datos-clientes class="contenedor-datos-clientes" [ngClass]="{'noMostrar':!tareaSvc.mostrarCliente}"></app-datos-clientes>
     <app-tabla-datos class="contenedor-tabla-datos"></app-tabla-datos>
   </div>
 </div>

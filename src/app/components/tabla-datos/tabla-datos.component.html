@@ -7,9 +7,9 @@
           <th scope="col" class="nombre">Nombre</th>
           <th scope="col" class="comercial">Comercial</th>
           <th scope="col" class="email">Email</th>
-          <th scope="col" class="telefono">Telefono</th>
+          <th scope="col" class="telefono">Provincia</th>
           <th scope="col" class="localidad">Localidad</th>
-          <th scope="col" class="provincia">Provincia</th>
+          <th scope="col" class="provincia">Telefono</th>
         </tr>
       </thead>
       <tbody id="cuerpo-tabla">
@@ -28,14 +28,15 @@
           <td scope="col" class="email">
             {{cogerPrimerElementoComa(item.email)}}
           </td>
-          <td scope="col" class="telefono">
-            {{item.telefono}}
-          </td>
+     
           <td scope="col" class="localidad"> 
             {{item.localidad}}
           </td>
           <td scope="col" class="provincia">
             {{item.provincia}}
+          </td>
+          <td scope="col" class="telefono">
+            {{item.telefono}}
           </td>
         </tr>
       </tbody>
