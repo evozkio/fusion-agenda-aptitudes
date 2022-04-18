@@ -1,10 +1,10 @@
 <div class="contenedor-principal">
     <div class="contenedor-selector-filtro">
-        <div class="contenedor-nombre">
+        <div class="contenedor-codigo">
             <label>Nombre:</label>
             <div class="contenedor-input input-group">
-                <input class="form-control" type="text"  [(ngModel)]='nombre' />
-                <button class="btn btn-outline-danger input-group-append" (click)="nombre = ''"><fa-icon  [icon]="faTrash"></fa-icon></button>
+                <input class="form-control" type="text"  [(ngModel)]='codigo' />
+                <button class="btn btn-outline-danger input-group-append" (click)="codigo = ''"><fa-icon  [icon]="faTrash"></fa-icon></button>
             </div>
         </div>
         <div class="contenedor-alias">
@@ -14,13 +14,6 @@
                 <button class="btn btn-outline-danger  input-group-append" (click)="alias = ''"><fa-icon  [icon]="faTrash"></fa-icon></button>
             </div>
         </div>
-        <div class="contenedor-razon-social">
-            <label>Razón Social:</label>
-            <div class="contenedor-input input-group">
-                <input class="form-control" type="text" [(ngModel)]='razon_social'/>
-                <button class="btn btn-outline-danger  input-group-append" (click)="razon_social = ''"><fa-icon  [icon]="faTrash"></fa-icon></button>
-            </div>
-        </div>
         <div class="documento">
             <label>Documento:</label>
             <div class="contenedor-input input-group">
@@ -28,53 +21,11 @@
                 <button class="btn btn-outline-danger  input-group-append" (click)="documento = ''"><fa-icon  [icon]="faTrash"></fa-icon></button>
             </div>
         </div>
-        <div class="comercial">
-            <label>Comercial:</label>
-            <div class="contenedor-input input-group">
-                <input class="form-control" type="text" [(ngModel)]='comercial'/>
-                <button class="btn btn-outline-danger  input-group-append" (click)="comercial = ''"><fa-icon  [icon]="faTrash"></fa-icon></button>
-            </div>
-        </div>
-        <div class="email">
-            <label>Email:</label>
-            <div class="contenedor-input input-group">
-                <input class="form-control" type="text" [(ngModel)]='email'/>
-                <button class="btn btn-outline-danger  input-group-append" (click)="email = ''"><fa-icon  [icon]="faTrash"></fa-icon></button>
-            </div>
-        </div>
-        <div class="telefono">
-            <label>Telefono:</label>
-            <div class="contenedor-input input-group">
-                <input class="form-control" type="text" [(ngModel)]='telefono'/>
-                <button class="btn btn-outline-danger  input-group-append" (click)="telefono = ''"><fa-icon  [icon]="faTrash"></fa-icon></button>
-            </div>
-        </div>
-        <div class="direccion">
-            <label>Dirección:</label>
-            <div class="contenedor-input input-group">
-                <input class="form-control" type="text" [(ngModel)]='direccion'/>
-                <button class="btn btn-outline-danger  input-group-append" (click)="direccion = ''"><fa-icon  [icon]="faTrash"></fa-icon></button>
-            </div>
-        </div>
         <div class="localidad">
             <label>Localidad:</label>
             <div class="contenedor-input input-group">
                 <input class="form-control" type="text" [(ngModel)]='localidad'/>
                 <button class="btn btn-outline-danger  input-group-append" (click)="localidad = ''"><fa-icon  [icon]="faTrash"></fa-icon></button>
-            </div>
-        </div>
-        <div class="provincia">
-            <label>Provincia:</label>
-            <div class="contenedor-input input-group">
-                <input class="form-control" type="text" [(ngModel)]='provincia'/>
-                <button class="btn btn-outline-danger  input-group-append" (click)="provincia = ''"><fa-icon  [icon]="faTrash"></fa-icon></button>
-            </div>
-        </div>
-        <div class="cp">
-            <label>CP:</label>
-            <div class="contenedor-input input-group">
-                <input class="form-control" type="text" [(ngModel)]='cp'/>
-                <button class="btn btn-outline-danger  input-group-append" (click)="cp = ''"><fa-icon  [icon]="faTrash"></fa-icon></button>
             </div>
         </div>
     </div>

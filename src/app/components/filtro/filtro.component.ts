@@ -10,18 +10,10 @@ import { TareaService } from 'src/app/services/tarea.service';
   styleUrls: ['./filtro.component.scss']
 })
 export class FiltroComponent {
-
-  nombre:string = '';
+  codigo:string= '';
   alias:string = '';
-  razon_social:string = '';
   documento:string = '';
-  comercial:string = '';
-  email:string = '';
-  telefono:string = '';
-  direccion:string = '';
   localidad:string = '';
-  provincia:string = '';
-  cp:string = '';
 
 
 
@@ -36,17 +28,9 @@ export class FiltroComponent {
 
   actionBuscar(){
     let filtros = {
-      nombre : this.nombre,
+      codigo : this.codigo,
       alias : this.alias,
-      razon_social : this.razon_social,
       documento: this.documento,
-      comercial : this.comercial,
-      email : this.email,
-      telefono : this.telefono,
-      direccion : this.direccion,
-      localidad : this.localidad,
-      provincia : this.provincia,
-      cp : this.cp,
       activo :'1'
     }
 
