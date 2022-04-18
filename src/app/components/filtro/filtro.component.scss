@@ -6,19 +6,19 @@
     border-radius: 5px;
     padding: 5px 10px;
     background-color: #171010;
-    label{
-        color: white;
-    }
+
     .contenedor-selector-filtro{
         overflow-y: auto;
         height: 100%;
         display: flex;
         padding: 0 5px;
         gap: 5px;
-
-  
-
-
+        .btn-outline-danger:focus{
+            box-shadow: none;
+        }
+        label{
+            color: white;
+        }
     }
     .contenedor-botonera{
         display: flex;
