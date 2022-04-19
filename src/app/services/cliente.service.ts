@@ -2,7 +2,6 @@ import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Injectable} from "@angular/core";
 import * as CryptoJS from 'crypto-js';
-import { calcPossibleSecurityContexts } from "@angular/compiler/src/template_parser/binding_parser";
 
 @Injectable()
 export class ClienteService{

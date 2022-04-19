@@ -13,7 +13,7 @@ export class FiltroComponent {
   codigo:string= '';
   alias:string = '';
   documento:string = '';
-  localidad:string = '';
+  provincia:string = '';
   activo:boolean = true;
 
 
@@ -31,9 +31,12 @@ export class FiltroComponent {
     let filtros = {
       codigo : this.codigo,
       alias : this.alias,
-      documento: this.documento,
+      documento : this.documento,
+      provincia : this.provincia,
       activo : this.activo ? 1:0
     }
+
+    this.tareaSvc.mostrarCliente = false;
 
     this.clienteSvc.getCliente(filtros).subscribe(
       (data) => { 

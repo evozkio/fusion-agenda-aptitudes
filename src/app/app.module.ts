@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { FormsModule } from "@angular/forms";
 
@@ -8,9 +7,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FiltroComponent } from './components/filtro/filtro.component';
 import { TablaDatosComponent } from './components/tabla-datos/tabla-datos.component';
-import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { PopoverModule } from 'ngx-bootstrap/popover';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { TareaService } from './services/tarea.service';
 import { ClienteService } from "./services/cliente.service";
@@ -27,11 +24,8 @@ import { DatosClientesComponent } from './datos-clientes/datos-clientes.componen
   imports: [
     FormsModule,
     BrowserModule,
-    TooltipModule.forRoot(),
     BrowserAnimationsModule,
-    BsDatepickerModule.forRoot(),
     FontAwesomeModule,
-    PopoverModule.forRoot(),
     NgxPaginationModule,
     PaginationModule.forRoot(),
     HttpClientModule

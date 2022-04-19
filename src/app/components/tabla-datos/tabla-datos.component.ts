@@ -23,10 +23,10 @@ export class TablaDatosComponent implements OnInit{
   constructor(public tareaSvc: TareaService,private clienteSvc: ClienteService){
     const filtros = {
       alias : '',
-      activo: 1,
-      provincia: '',
-      documento: '',
-      codigo: ''
+      activo : 1,
+      provincia : '',
+      documento : '',
+      codigo : ''
     }
     clienteSvc.getCliente(filtros).subscribe(
       (data) => { 
