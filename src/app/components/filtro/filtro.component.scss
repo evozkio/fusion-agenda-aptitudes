@@ -6,7 +6,6 @@
     border-radius: 0 0 5px 5px;
     padding: 5px 10px;
     background-color: #171010;
-    width: 100%;
 
     .contenedor-selector-filtro{
         width: 100%;
@@ -14,7 +13,7 @@
         height: 100%;
         display: flex;
         padding: 0 5px;
-        gap: 5px;
+        gap: 10px;
         .btn-outline-danger:focus{
             box-shadow: none;
         }
@@ -24,7 +23,12 @@
         .contenedor-checkbox{
             display: flex;
             justify-content: center;
-            padding-top: 12px;
+            padding-top: 2px;
+            .form-check-input{
+                width: 30px;
+                height: 20px;
+                box-shadow: none;
+            }
         }
 
     }

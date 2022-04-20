@@ -18,6 +18,18 @@
             width: 100%;
         }
     }
+    .activo{
+        color:whitesmoke;
+        gap: 5px;
+        display: flex;
+        align-items: center;
+        .form-check{
+            padding-top: 3px;
+        }
+        .form-check-input{
+            box-shadow: none;
+        }
+    }
     .botonera{
         padding: 10px;
         display: flex;

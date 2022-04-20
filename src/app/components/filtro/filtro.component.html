@@ -3,35 +3,35 @@
         <div class="contenedor-codigo">
             <label>Numero:</label>
             <div class="contenedor-input input-group">
-                <input class="form-control" type="text"  [(ngModel)]='codigo' />
-                <button class="btn btn-outline-danger input-group-append" (click)="codigo = ''"><fa-icon  [icon]="faTrash"></fa-icon></button>
+                <input class="form-control form-control-sm" type="text"  [(ngModel)]='codigo' />
+                <button class="btn btn-sm btn-outline-danger input-group-append" (click)="codigo = ''"><fa-icon  [icon]="faTrash"></fa-icon></button>
             </div>
         </div>
         <div class="contenedor-alias">
             <label>Alias:</label>
             <div class="contenedor-input input-group">
-                <input class="form-control" type="text" [(ngModel)]='alias'/>
-                <button class="btn btn-outline-danger  input-group-append" (click)="alias = ''"><fa-icon  [icon]="faTrash"></fa-icon></button>
+                <input class="form-control form-control-sm" type="text" [(ngModel)]='alias'/>
+                <button class="btn btn-sm btn-outline-danger  input-group-append" (click)="alias = ''"><fa-icon  [icon]="faTrash"></fa-icon></button>
             </div>
         </div>
         <div class="documento">
             <label>Documento:</label>
             <div class="contenedor-input input-group">
-                <input class="form-control" type="text" [(ngModel)]='documento'/>
-                <button class="btn btn-outline-danger  input-group-append" (click)="documento = ''"><fa-icon  [icon]="faTrash"></fa-icon></button>
+                <input class="form-control form-control-sm" type="text" [(ngModel)]='documento'/>
+                <button class="btn btn-sm btn-outline-danger  input-group-append" (click)="documento = ''"><fa-icon  [icon]="faTrash"></fa-icon></button>
             </div>
         </div>
         <div class="provincia">
             <label>Provincia:</label>
             <div class="contenedor-input input-group">
-                <input class="form-control" type="text" [(ngModel)]='provincia'/>
-                <button class="btn btn-outline-danger  input-group-append" (click)="provincia = ''"><fa-icon  [icon]="faTrash"></fa-icon></button>
+                <input class="form-control form-control-sm" type="text" [(ngModel)]='provincia'/>
+                <button class="btn btn-sm btn-outline-danger  input-group-append" (click)="provincia = ''"><fa-icon  [icon]="faTrash"></fa-icon></button>
             </div>
         </div>
-        <div class="activo" style="color: whitesmoke;">
+        <div class="activo" >
             <label>Activo:</label>
-            <div class="contenedor-checkbox">
-                <input type="checkbox" [(ngModel)]='activo'>
+            <div class="contenedor-checkbox form-check form-switch">
+                <input type="checkbox" class="form-check-input" [(ngModel)]='activo'>
             </div>
         </div>
     </div>
