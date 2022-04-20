@@ -73,9 +73,7 @@ export class TablaDatosComponent implements OnInit{
     setTimeout(() => this.tareaSvc.pagina = pag, 100);
   }
 
-  numeroPorPagina():number{
-    return this.numeroElementos;
-  }
+
   
   cogerPrimerElementoComa(cadena:string):string{
     let valor:string [] = cadena.split(',');

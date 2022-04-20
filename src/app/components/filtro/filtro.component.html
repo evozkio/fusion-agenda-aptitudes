@@ -30,15 +30,20 @@
         </div>
         <div class="activo" style="color: whitesmoke;">
             <label>Activo:</label>
-            <div>
-                <input type="checkbox" style="width: 38px;" [(ngModel)]='activo'>
+            <div class="contenedor-checkbox">
+                <input type="checkbox" [(ngModel)]='activo'>
             </div>
         </div>
     </div>
     <div class="contenedor-botonera">
-        <button class="btn btn-outline-danger" class="btn btn-primary" (click)="actionBuscar()"> 
+        <button class="btn btn-primary" (click)="actionBuscar()"> 
             <fa-icon  [icon]="faSearch">
             </fa-icon>
+        </button>
+        <button class="btn btn-success" (click)="crearUsuario()">
+            <fa-icon  [icon]="faUser">
+            </fa-icon> 
+            Crear Usuario
         </button>
     </div>
 </div>

@@ -1,5 +1,5 @@
 import { Component} from '@angular/core';
-import {faSearch,faTrash} from '@fortawesome/free-solid-svg-icons'
+import {faSearch,faTrash,faUser} from '@fortawesome/free-solid-svg-icons'
 import { ClienteEmpresa } from 'src/app/models/cliente-empresa.model';
 import { ClienteService } from 'src/app/services/cliente.service';
 import { TareaService } from 'src/app/services/tarea.service';
@@ -17,7 +17,7 @@ export class FiltroComponent {
   activo:boolean = true;
 
 
-
+  faUser=faUser;
   faSearch=faSearch;
   faTrash=faTrash;
   bsConfig:any;
@@ -53,6 +53,27 @@ export class FiltroComponent {
       },
       (error) => {alert("No se han podido cargar los datos!");}
     )
+  }
+
+  crearUsuario(){
+    this.tareaSvc.mostrarCliente = true;
+    this.tareaSvc.seleccionCliente ={
+      "id":"",
+      "numero":"",
+      "alias":"",
+      "nombre":"",
+      "razon_social":"",
+      "documento":"",
+      "comercial":"",
+      "email":"",
+      "telefono":"",
+      "direccion":"",
+      "localidad":"",
+      "provincia":"",
+      "cp":"",
+      "activo": false,
+      "notas":""
+    };
   }
 
 

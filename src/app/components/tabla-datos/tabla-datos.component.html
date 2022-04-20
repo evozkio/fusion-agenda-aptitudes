@@ -13,7 +13,7 @@
         </tr>
       </thead>
       <tbody id="cuerpo-tabla">
-        <tr class="datos" *ngFor="let item of tareaSvc.clientes| slice: (tareaSvc.pagina-1)*this.numeroElementos : ((tareaSvc.pagina-1)*this.numeroElementos)+this.numeroElementos" (click) ="seleccionCliente(item)">
+        <tr class="datos" *ngFor="let item of tareaSvc.clientes| slice: (tareaSvc.pagina-1)*this.numeroElementos : tareaSvc.pagina*this.numeroElementos" (click) ="seleccionCliente(item)">
           <td scope="col" class="numero">
             {{item.numero}}
           </td>
@@ -26,14 +26,20 @@
             {{item.comercial}}
           </td>
           <td scope="col" class="email">
-            {{cogerPrimerElementoComa(item.email)}}
-          </td>
-     
-          <td scope="col" class="localidad"> 
-            {{item.localidad}}
+            <span class="text-truncate ">
+              {{cogerPrimerElementoComa(item.email)}}
+            </span>
           </td>
           <td scope="col" class="provincia">
-            {{item.provincia}}
+            <span class="text-truncate ">
+              {{item.provincia}}
+            </span>
+          
+          </td>
+          <td scope="col" class="localidad">
+            <span class="text-truncate ">
+              {{item.localidad}}
+            </span>
           </td>
           <td scope="col" class="telefono">
             {{item.telefono}}
@@ -44,7 +50,7 @@
         <div>Lineas: {{tareaSvc.clientes.length}}</div>
         <pagination class="paginacion my-pagination" [totalItems]="tareaSvc.clientes.length" [boundaryLinks]="true"  
           previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;" [(ngModel)]="tareaSvc.pagina" 
-          [itemsPerPage]="numeroPorPagina()"
+          [itemsPerPage]="numeroElementos"
           [maxSize]="7"
           >
         </pagination>

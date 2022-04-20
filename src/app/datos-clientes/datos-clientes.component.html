@@ -80,17 +80,17 @@
     <div class="notas">
         <label>Notas:</label>
         <div class="contenedor-input input-group">
-            <input class="form-control" type="text" [(ngModel)]='tareaSvc.seleccionCliente.notas'/>
+            <input class="form-control" type="text" [(ngModel)]='tareaSvc.seleccionCliente.notas' />
         </div>
     </div>
     <div class="activo" style="color: whitesmoke;">
         Activo
-        <input type="checkbox" [(ngModel)]='tareaSvc.seleccionCliente.activo'>
+        <input type="checkbox" class="content-input" [(ngModel)]='tareaSvc.seleccionCliente.activo'>
     </div>
     <div class="botonera">
-        <button class="btn btn-danger">BORRAR</button>
-        <button class="btn btn-info">MODIFICAR</button>
-        <button class="btn btn-success">CREAR</button>
-        <button class="btn btn-danger" (click)="tareaSvc.mostrarCliente = false">CERRAR</button>
+        <button class="btn btn-outline-danger">BORRAR</button>
+        <button class="btn btn-outline-info">MODIFICAR</button>
+        <button class="btn btn-outline-success">CREAR</button>
+        <button class="btn btn-outline-danger" (click)="tareaSvc.mostrarCliente = false">CERRAR</button>
     </div>
 </div>

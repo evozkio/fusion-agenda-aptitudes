@@ -2,8 +2,8 @@
     height: 100%;
     overflow: hidden;
     display: grid;
-    grid-template-columns: 1fr 100px;
-    border-radius: 5px;
+    grid-template-columns: 1fr 300px;
+    border-radius: 0 0 5px 5px;
     padding: 5px 10px;
     background-color: #171010;
     width: 100%;
@@ -21,10 +21,25 @@
         label{
             color: white;
         }
+        .contenedor-checkbox{
+            display: flex;
+            justify-content: center;
+            padding-top: 12px;
+        }
+
     }
     .contenedor-botonera{
         display: flex;
-        justify-content: center;
+        justify-content: end;
         align-items: center;
+        gap: 5px;
+        .btn-primary:focus{
+            box-shadow: none;
+            background-color: darkblue;
+        }
+        .btn-success:focus{
+            box-shadow: none;
+            background-color: green;
+        }
     }
 }
