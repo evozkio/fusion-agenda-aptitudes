@@ -16,6 +16,7 @@ export class ClienteEmpresa{
     public localidad: string;
     public provincia: string;
     public cp: string;
+    public poblacion: string;
 
     public activo: boolean;
     public notas: string;
@@ -23,7 +24,7 @@ export class ClienteEmpresa{
 
 
     constructor(json:any ){
-       this.id = json.id ?? '';
+       this.id = json.idcliente ?? '';
        this.numero = json.numero ?? '';
        this.alias = json.alias ?? '';
        this.nombre = json.nombre ?? '';
@@ -36,7 +37,30 @@ export class ClienteEmpresa{
        this.localidad = json.localidad ?? '';
        this.provincia = json.provincia ?? '';
        this.cp = json.cp ?? '';
+       this.poblacion = json.poblacion ?? '';
        this.activo = (json.activo == '1');
        this.notas = json.notas ?? '';       
+    }
+
+    darParametros():any{
+        let parametros = {
+            id : this.id,
+            numero : this.numero,
+            alias : this.alias,
+            nombre : this.nombre,
+            razon_social : this.razon_social,
+            documento : this.documento,
+            comercial : this.comercial,
+            email : this.email,
+            telefono : this.telefono,
+            direccion : this.direccion,
+            localidad : this.localidad,
+            provincia : this.provincia,
+            cp : this.cp,
+            poblacion : this.cp+' '+this.localidad,
+            activo : (this.activo)? 1:0,
+            notas : this.notas
+        }
+        return parametros;
     }
 }

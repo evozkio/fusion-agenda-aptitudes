@@ -12,7 +12,8 @@
         display: flex;
         gap: 10px;
         .contenedor-datos-clientes{
-            width: 600px;
+            min-width: 500px;
+            width: 500px;
             height: 100%;
             overflow: hidden;
         }

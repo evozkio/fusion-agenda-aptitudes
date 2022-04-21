@@ -90,9 +90,9 @@
         </div>
     </div>
     <div class="botonera">
-        <button class="btn btn-outline-danger">BORRAR</button>
-        <button class="btn btn-outline-info">MODIFICAR</button>
-        <button class="btn btn-outline-success">CREAR</button>
+        <button class="btn btn-outline-success" (click)="crearCliente()">CREAR</button>
+        <button class="btn btn-outline-info" (click)="modificarCliente()">MODIFICAR</button>
+        <button class="btn btn-outline-danger" (click)="borrarCliente()">BORRAR</button>
         <button class="btn btn-outline-danger" (click)="tareaSvc.mostrarCliente = false">CERRAR</button>
     </div>
 </div>

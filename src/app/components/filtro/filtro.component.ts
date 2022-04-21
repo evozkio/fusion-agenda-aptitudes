@@ -57,23 +57,7 @@ export class FiltroComponent {
 
   crearUsuario(){
     this.tareaSvc.mostrarCliente = true;
-    this.tareaSvc.seleccionCliente ={
-      "id":"",
-      "numero":"",
-      "alias":"",
-      "nombre":"",
-      "razon_social":"",
-      "documento":"",
-      "comercial":"",
-      "email":"",
-      "telefono":"",
-      "direccion":"",
-      "localidad":"",
-      "provincia":"",
-      "cp":"",
-      "activo": false,
-      "notas":""
-    };
+    this.tareaSvc.seleccionCliente = new ClienteEmpresa({});
   }
 
 

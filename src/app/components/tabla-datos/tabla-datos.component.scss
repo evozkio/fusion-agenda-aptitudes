@@ -37,13 +37,20 @@
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
-                
-                tr{
-                    background-color: blue;
-                }
 
                 .paginacion{
                     height: 100%;
+                }
+
+                .my-pagination::ng-deep .page-item.active .page-link {
+                    color: #FFFFFF;
+                    background-color:blue !important;
+                    border-color: white;
+                }
+                
+                .my-pagination::ng-deep  .page-link {
+                    color: #FFFFFF;
+                    background-color:rgb(48, 46, 46) !important;
                 }
             
                 div{
@@ -100,13 +107,3 @@
 }
 
 
-.my-pagination::ng-deep .page-item.active .page-link {
-    color: #FFFFFF;
-    background-color:blue !important;
-    border-color: white;
-}
-
-.my-pagination::ng-deep  .page-link {
-    color: #FFFFFF;
-    background-color:rgb(48, 46, 46) !important;
-}

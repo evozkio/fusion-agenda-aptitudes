@@ -24,7 +24,16 @@ export class ClienteService{
 
   getCliente(parametros: any):Observable<any>{
 
-    return this.http.get<any>('https://www.azurglobal.es/apiPracticas/clientes/',{headers: this.cabecera, params: parametros});
+    return this.http.get<any>(this.url,{headers: this.cabecera, params: parametros});
+  }
+  deleteCliente(parametros: any) :Observable<any>{
+    return this.http.delete<any>(this.url,{headers: this.cabecera, params: parametros});
+  }
+  updateCliente(parametros: any){
+
+  }
+  createCliente(parametros: any){
+
   }
 
 }
