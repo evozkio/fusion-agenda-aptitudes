@@ -1,7 +1,6 @@
 import { Component, HostListener, Input, OnInit } from '@angular/core';
 import {faExclamationCircle,faInfoCircle} from '@fortawesome/free-solid-svg-icons'
 import { ClienteService } from 'src/app/services/cliente.service';
-import { TareaService } from 'src/app/services/tarea.service';
 import { ClienteEmpresa } from 'src/app/models/cliente-empresa.model';
 
 
@@ -20,19 +19,13 @@ export class TablaDatosComponent implements OnInit{
   cuerpoTabla:any;
   numeroElementos:number = 31;
 
-  constructor(public tareaSvc: TareaService,private clienteSvc: ClienteService){
-    const filtros = {
-      alias : '',
-      activo : 1,
-      provincia : '',
-      documento : '',
-      codigo : ''
-    }
-    clienteSvc.getCliente(filtros).subscribe(
+  constructor(public clienteSvc: ClienteService){
+ 
+    clienteSvc.getCliente(clienteSvc.filtros).subscribe(
       (data) => { 
         console.log(data);
-        tareaSvc.clientes = data.data; 
-        tareaSvc.clientes.sort(function (a:ClienteEmpresa, b:ClienteEmpresa) {
+        clienteSvc.clientes = data.data; 
+        clienteSvc.clientes.sort(function (a:ClienteEmpresa, b:ClienteEmpresa) {
           if (a.nombre > b.nombre) {
             return 1;
           }
@@ -41,6 +34,8 @@ export class TablaDatosComponent implements OnInit{
           }
           return 0;
         });
+        clienteSvc.seleccionCliente = clienteSvc.clientes[0];
+        clienteSvc.pagina = 1;
       },
       (error) => {alert("No se han podido cargar los datos!");}
     )
@@ -70,7 +65,7 @@ export class TablaDatosComponent implements OnInit{
 
   cambiarPaginacion(pag: number, items:number){
     this.numeroElementos = items;
-    setTimeout(() => this.tareaSvc.pagina = pag, 100);
+    setTimeout(() => this.clienteSvc.pagina = pag, 100);
   }
 
 
@@ -81,7 +76,7 @@ export class TablaDatosComponent implements OnInit{
   }
 
   seleccionCliente(cliente: ClienteEmpresa):void{
-    this.tareaSvc.seleccionCliente =  new ClienteEmpresa (cliente);
-    this.tareaSvc.mostrarCliente = true;
+    this.clienteSvc.seleccionCliente =  new ClienteEmpresa (cliente);
+    this.clienteSvc.mostrarCliente = true;
   }
 }

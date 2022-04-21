@@ -2,7 +2,6 @@ import { Component} from '@angular/core';
 import {faSearch,faTrash,faUser} from '@fortawesome/free-solid-svg-icons'
 import { ClienteEmpresa } from 'src/app/models/cliente-empresa.model';
 import { ClienteService } from 'src/app/services/cliente.service';
-import { TareaService } from 'src/app/services/tarea.service';
 
 @Component({
   selector: 'app-filtro',
@@ -23,7 +22,7 @@ export class FiltroComponent {
   bsConfig:any;
   
 
-  constructor(public tareaSvc: TareaService, private clienteSvc: ClienteService){
+  constructor(private clienteSvc: ClienteService){
   }
 
 
@@ -36,12 +35,12 @@ export class FiltroComponent {
       activo : this.activo ? 1:0
     }
 
-    this.tareaSvc.mostrarCliente = false;
+    this.clienteSvc.mostrarCliente = false;
 
     this.clienteSvc.getCliente(filtros).subscribe(
       (data) => { 
-        this.tareaSvc.clientes = data.data; 
-        this.tareaSvc.clientes.sort(function (a:ClienteEmpresa, b:ClienteEmpresa) {
+        this.clienteSvc.clientes = data.data; 
+        this.clienteSvc.clientes.sort(function (a:ClienteEmpresa, b:ClienteEmpresa) {
           if (a.nombre > b.nombre) {
             return 1;
           }
@@ -56,8 +55,8 @@ export class FiltroComponent {
   }
 
   crearUsuario(){
-    this.tareaSvc.mostrarCliente = true;
-    this.tareaSvc.seleccionCliente = new ClienteEmpresa({});
+    this.clienteSvc.mostrarCliente = true;
+    this.clienteSvc.seleccionCliente = new ClienteEmpresa({});
   }
 
 

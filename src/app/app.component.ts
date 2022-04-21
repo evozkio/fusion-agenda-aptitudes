@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TareaService } from './services/tarea.service';
+import { ClienteService } from './services/cliente.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -7,7 +7,7 @@ import { TareaService } from './services/tarea.service';
 })
 
 export class AppComponent {
-  constructor(public tareaSvc: TareaService){
+  constructor(public clienteSvc: ClienteService){
 
   }
 }

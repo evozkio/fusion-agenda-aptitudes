@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
+import { ClienteEmpresa } from '../models/cliente-empresa.model';
 import { ClienteService } from '../services/cliente.service';
-import { TareaService } from '../services/tarea.service';
 
 @Component({
   selector: 'app-datos-clientes',
@@ -9,7 +9,7 @@ import { TareaService } from '../services/tarea.service';
 })
 export class DatosClientesComponent {
 
-  constructor(public tareaSvc: TareaService, private clienteSvc: ClienteService ) { 
+  constructor( public clienteSvc: ClienteService ) { 
   }
 
    crearCliente(){
@@ -20,15 +20,39 @@ export class DatosClientesComponent {
 
    borrarCliente(){
      let filtro={
-       id : this.tareaSvc.seleccionCliente.id
+       id : this.clienteSvc.seleccionCliente.id
     }
-    console.log(this.tareaSvc.seleccionCliente);
      this.clienteSvc.deleteCliente(filtro).subscribe(
-      (data) => {console.log(data);},
+      (data) => {
+        console.log(data);
+        this.actualizarClientes();
+      },
       (error) => {alert(error.mensaje);
                 console.log(error);
       }
+    );
+    
+  }
+
+  actualizarClientes(){
+    this.clienteSvc.getCliente(this.clienteSvc.filtros).subscribe(
+      (data) => { 
+        console.log(data);
+        this.clienteSvc.clientes = data.data; 
+        this.clienteSvc.clientes.sort(function (a:ClienteEmpresa, b:ClienteEmpresa) {
+          if (a.nombre > b.nombre) {
+            return 1;
+          }
+          if (a.nombre < b.nombre) {
+            return -1;
+          }
+          return 0;
+        });
+        this.clienteSvc.seleccionCliente = this.clienteSvc.clientes[0];
+        this.clienteSvc.pagina = 1;
+      },
+      (error) => {alert("No se han podido cargar los datos!");}
     )
-   }
+  }
 
 }

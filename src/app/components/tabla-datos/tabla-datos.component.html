@@ -13,7 +13,7 @@
         </tr>
       </thead>
       <tbody id="cuerpo-tabla">
-        <tr class="datos" *ngFor="let item of tareaSvc.clientes| slice: (tareaSvc.pagina-1)*this.numeroElementos : tareaSvc.pagina*this.numeroElementos" (click) ="seleccionCliente(item)">
+        <tr class="datos" *ngFor="let item of clienteSvc.clientes| slice: (clienteSvc.pagina-1)*this.numeroElementos : clienteSvc.pagina*this.numeroElementos" (click) ="seleccionCliente(item)">
           <td scope="col" class="numero">
             {{item.numero}}
           </td>
@@ -47,9 +47,9 @@
         </tr>
       </tbody>
       <tfoot>
-        <div>Lineas: {{tareaSvc.clientes.length}}</div>
-        <pagination class="paginacion my-pagination" [totalItems]="tareaSvc.clientes.length" [boundaryLinks]="true"  
-          previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;" [(ngModel)]="tareaSvc.pagina" 
+        <div>Lineas: {{clienteSvc.clientes.length}}</div>
+        <pagination class="paginacion my-pagination" [totalItems]="clienteSvc.clientes.length" [boundaryLinks]="true"  
+          previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;" [(ngModel)]="clienteSvc.pagina" 
           [itemsPerPage]="numeroElementos"
           [maxSize]="7"
           [rotate]="true"

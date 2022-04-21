@@ -9,7 +9,6 @@ import { FiltroComponent } from './components/filtro/filtro.component';
 import { TablaDatosComponent } from './components/tabla-datos/tabla-datos.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
-import { TareaService } from './services/tarea.service';
 import { ClienteService } from "./services/cliente.service";
 import { HttpClientModule } from "@angular/common/http";
 import { DatosClientesComponent } from './datos-clientes/datos-clientes.component';
@@ -30,7 +29,7 @@ import { DatosClientesComponent } from './datos-clientes/datos-clientes.componen
     PaginationModule.forRoot(),
     HttpClientModule
   ],
-  providers: [TareaService, ClienteService],
+  providers: [ClienteService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

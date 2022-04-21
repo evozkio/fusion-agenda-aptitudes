@@ -2,6 +2,7 @@ import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Injectable} from "@angular/core";
 import * as CryptoJS from 'crypto-js';
+import { ClienteEmpresa } from "../models/cliente-empresa.model";
 
 @Injectable()
 export class ClienteService{
@@ -10,6 +11,18 @@ export class ClienteService{
   private cabecera: any = {};
   private nombre: string = 'CARLOS';
   private fecha:Date = new Date (Date.now());
+  
+  public pagina:number = 1;
+  public clientes: ClienteEmpresa[] = []; 
+  public seleccionCliente: ClienteEmpresa = new ClienteEmpresa({});
+  public mostrarCliente:boolean = false;
+  public filtros= {
+    alias : '',
+    activo : 1,
+    provincia : '',
+    documento : '',
+    codigo : ''
+  };
 
 
   constructor(private http: HttpClient) {
