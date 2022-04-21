@@ -6,7 +6,6 @@ import { FormsModule } from "@angular/forms";
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FiltroComponent } from './components/filtro/filtro.component';
-import { TablaDatosComponent } from './components/tabla-datos/tabla-datos.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { ClienteService } from "./services/cliente.service";
@@ -17,7 +16,6 @@ import { DatosClientesComponent } from './datos-clientes/datos-clientes.componen
   declarations: [
     AppComponent,
     FiltroComponent,
-    TablaDatosComponent,
     DatosClientesComponent
   ],
   imports: [

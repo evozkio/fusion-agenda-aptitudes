@@ -12,19 +12,6 @@ export class ClienteService{
   private nombre: string = 'CARLOS';
   private fecha:Date = new Date (Date.now());
   
-  public pagina:number = 1;
-  public clientes: ClienteEmpresa[] = []; 
-  public seleccionCliente: ClienteEmpresa = new ClienteEmpresa({});
-  public mostrarCliente:boolean = false;
-  public filtros= {
-    alias : '',
-    activo : 1,
-    provincia : '',
-    documento : '',
-    codigo : ''
-  };
-
-
   constructor(private http: HttpClient) {
     let anio = this.fecha.getFullYear();
     let mes = this.fecha.getMonth() < 9 ? '0'+(this.fecha.getMonth()+1) : this.fecha.getMonth()+1;
@@ -36,7 +23,6 @@ export class ClienteService{
   }
 
   getCliente(parametros: any):Observable<any>{
-
     return this.http.get<any>(this.url,{headers: this.cabecera, params: parametros});
   }
   deleteCliente(parametros: any) :Observable<any>{

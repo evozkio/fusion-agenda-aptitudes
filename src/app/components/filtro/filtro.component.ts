@@ -1,6 +1,5 @@
-import { Component} from '@angular/core';
+import { Component, EventEmitter, Output} from '@angular/core';
 import {faSearch,faTrash,faUser} from '@fortawesome/free-solid-svg-icons'
-import { ClienteEmpresa } from 'src/app/models/cliente-empresa.model';
 import { ClienteService } from 'src/app/services/cliente.service';
 
 @Component({
@@ -14,6 +13,9 @@ export class FiltroComponent {
   documento:string = '';
   provincia:string = '';
   activo:boolean = true;
+
+  @Output() buscar = new EventEmitter<any>();
+  @Output() crear = new EventEmitter();
 
 
   faUser=faUser;
@@ -35,28 +37,11 @@ export class FiltroComponent {
       activo : this.activo ? 1:0
     }
 
-    this.clienteSvc.mostrarCliente = false;
-
-    this.clienteSvc.getCliente(filtros).subscribe(
-      (data) => { 
-        this.clienteSvc.clientes = data.data; 
-        this.clienteSvc.clientes.sort(function (a:ClienteEmpresa, b:ClienteEmpresa) {
-          if (a.nombre > b.nombre) {
-            return 1;
-          }
-          if (a.nombre < b.nombre) {
-            return -1;
-          }
-          return 0;
-        });
-      },
-      (error) => {alert("No se han podido cargar los datos!");}
-    )
+    this.buscar.emit(filtros);
   }
 
   crearUsuario(){
-    this.clienteSvc.mostrarCliente = true;
-    this.clienteSvc.seleccionCliente = new ClienteEmpresa({});
+    this.crear.emit();
   }
 
 
