@@ -11,13 +11,17 @@ export class DatosClientesComponent {
 
   @Input() clientePadre:ClienteEmpresa= new ClienteEmpresa({});
   @Output() borrar = new EventEmitter();
+  @Output() modificar = new EventEmitter();
   @Output() cerrar = new EventEmitter();
+  @Output() crear = new EventEmitter();
 
 
   crearCliente(){
+    this.crear.emit();
   }
 
   modificarCliente(){
+    this.modificar.emit()
   }
 
   borrarCliente(){

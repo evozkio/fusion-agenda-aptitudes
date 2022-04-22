@@ -18,7 +18,7 @@ export class AppComponent {
   
   filtros= {
     alias : '',
-    activo : 1,
+    activo : '',
     provincia : '',
     documento : '',
     codigo : ''
@@ -51,35 +51,36 @@ export class AppComponent {
     this.numeroElementos = items;
     setTimeout(() => this.pagina = pag, 100);
   }
-
-
-  
+ 
   cogerPrimerElementoComa(cadena:string):string{
     let valor:string [] = cadena.split(',');
     return valor[0];
   }
 
   seleccionCliente(cliente: ClienteEmpresa):void{
-    this.clienteSeleccionado =  new ClienteEmpresa (cliente);
+    this.clienteSeleccionado =  Object.assign(ClienteEmpresa, cliente);
     this.mostrarCliente = true;
   }
 
   obtenerClientes(){
     this.clienteSvc.getCliente(this.filtros).subscribe(
       (data) => { 
-        console.log(data);
-        this.clientes = data.data; 
-        this.clientes.sort(function (a:ClienteEmpresa, b:ClienteEmpresa) {
-          if (a.nombre > b.nombre) {
-            return 1;
-          }
-          if (a.nombre < b.nombre) {
-            return -1;
-          }
-          return 0;
-        });
+        this.clientes = data.data
+        .map((valor: any) =>( new ClienteEmpresa(valor)))
+        .sort((a:ClienteEmpresa, b:ClienteEmpresa) => a.nombre.localeCompare(b.nombre));
+
         this.clienteSeleccionado = this.clientes[0];
         this.pagina = 1;
+      },
+      (error) => {alert("No se han podido cargar los datos!");}
+    );
+  }
+  actualizarClientes(){
+    this.clienteSvc.getCliente(this.filtros).subscribe(
+      (data) => { 
+        this.clientes = data.data
+        .map((valor: any) =>( new ClienteEmpresa(valor)))
+        .sort((a:ClienteEmpresa, b:ClienteEmpresa) => a.nombre.localeCompare(b.nombre));
       },
       (error) => {alert("No se han podido cargar los datos!");}
     );
@@ -96,11 +97,21 @@ export class AppComponent {
   }
 
   crearCliente(){
-
+    this.clienteSvc.createCliente(this.darParametrosCrear()).subscribe(
+      (data) => { 
+        this.actualizarClientes();
+      },
+      (error) => {alert("No se ha podido crear Cliente");}
+    );
   }
 
   modificarCliente(){
-
+    this.clienteSvc.updateCliente(this.darParametrosModificar()).subscribe(
+      (data) => { 
+        this.actualizarClientes();
+      },
+      (error) => {alert("No se ha podido crear Cliente");}
+    );
   }
 
   borrarCliente(){
@@ -108,15 +119,59 @@ export class AppComponent {
       id : this.clienteSeleccionado.id
     }
     this.clienteSvc.deleteCliente(filtro).subscribe(
-      (data) => { 
-        console.log(data);
+      (data) => {
         this.obtenerClientes();
       },
-      (error) => {alert("No se han podido cargar los datos!");}
+      (error) => {alert("No se ha podido Borrar Cliente");}
     );
   }
 
   cerrarDatos(){
     this.mostrarCliente=false;
   }
+
+  darParametrosCrear():any{
+    let parametros = {
+        activo : (this.clienteSeleccionado.activo)? 1:0,
+        numero : this.clienteSeleccionado.numero,
+        nombre : this.clienteSeleccionado.nombre,
+        alias : this.clienteSeleccionado.alias,
+        razon_social : this.clienteSeleccionado.razon_social,
+        direccion : this.clienteSeleccionado.direccion,
+        poblacion : this.clienteSeleccionado.poblacion,
+        provincia : this.clienteSeleccionado.provincia,
+        telefono : this.clienteSeleccionado.telefono,
+        comercial : this.clienteSeleccionado.comercial,
+        documento : this.clienteSeleccionado.documento,
+        email : (this.clienteSeleccionado.email=='')?null:this.clienteSeleccionado.email,
+        notas : this.clienteSeleccionado.notas,
+        codigo_postal : this.clienteSeleccionado.cp
+    }
+
+    return parametros;
+  }
+
+  darParametrosModificar():any{
+    let parametros = {
+        idcliente: this.clienteSeleccionado.id,
+        activo : (this.clienteSeleccionado.activo)? 1:0,
+        nombre : this.clienteSeleccionado.nombre,
+        alias : this.clienteSeleccionado.alias,
+        razon_social : this.clienteSeleccionado.razon_social,
+        direccion : this.clienteSeleccionado.direccion,
+        poblacion : this.clienteSeleccionado.poblacion,
+        provincia : this.clienteSeleccionado.provincia,
+        telefono : this.clienteSeleccionado.telefono,
+        comercial : this.clienteSeleccionado.comercial,
+        documento : this.clienteSeleccionado.documento,
+        email : (this.clienteSeleccionado.email=='')?null:this.clienteSeleccionado.email,
+        notas : this.clienteSeleccionado.notas,
+        codigo_postal : this.clienteSeleccionado.cp
+    }
+
+    return parametros;
+  }
+
 }
+
+

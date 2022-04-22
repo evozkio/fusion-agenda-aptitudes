@@ -3,7 +3,14 @@
     <app-filtro class="contenedor-filtro" (crear)="botonCrearCliente()" (buscar)="buscarCliente($event)"></app-filtro>
   </div>
   <div class="contenedor-body">
-    <app-datos-clientes class="contenedor-datos-clientes" [clientePadre]="clienteSeleccionado" (cerrar)=" cerrarDatos()" (crear)="crearCliente()" (borrar)="borrarCliente()" [ngClass]="{'noMostrar':!mostrarCliente}"></app-datos-clientes>
+    <app-datos-clientes class="contenedor-datos-clientes" 
+      [clientePadre]="clienteSeleccionado" 
+      (cerrar)=" cerrarDatos()" 
+      (crear)="crearCliente()" 
+      (borrar)="borrarCliente()" 
+      (modificar)="modificarCliente()" 
+      [ngClass]="{'noMostrar':!mostrarCliente}">
+    </app-datos-clientes>
     <div class="contenedor-tabla-datos" >
       <div class="contenedor-tabla">
         <table class="table table-hover">
@@ -14,7 +21,7 @@
               <th scope="col" class="comercial">Comercial</th>
               <th scope="col" class="email">Email</th>
               <th scope="col" class="telefono">Provincia</th>
-              <th scope="col" class="localidad">Localidad</th>
+              <th scope="col" class="localidad">Población</th>
               <th scope="col" class="provincia">Telefono</th>
             </tr>
           </thead>
@@ -42,9 +49,9 @@
                 </span>
               
               </td>
-              <td scope="col" class="localidad">
+              <td scope="col" class="poblacion">
                 <span class="text-truncate ">
-                  {{item.localidad}}
+                  {{item.poblacion}}
                 </span>
               </td>
               <td scope="col" class="telefono">

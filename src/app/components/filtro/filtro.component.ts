@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Output} from '@angular/core';
-import {faSearch,faTrash,faUser} from '@fortawesome/free-solid-svg-icons'
+import {faSearch,faTrash,faUser,faMoon,faSun} from '@fortawesome/free-solid-svg-icons'
 
 @Component({
   selector: 'app-filtro',
@@ -12,15 +12,17 @@ export class FiltroComponent {
   documento:string = '';
   provincia:string = '';
   activo:boolean = true;
+  estilo:boolean = false;
 
   @Output() buscar = new EventEmitter<any>();
-  @Output() crear = new EventEmitter()
+  @Output() crear = new EventEmitter();
 
 
   faUser=faUser;
   faSearch=faSearch;
   faTrash=faTrash;
-  bsConfig:any;
+  faMoon=faMoon;
+  faSun=faSun;
 
 
   actionBuscar(){
@@ -37,5 +39,9 @@ export class FiltroComponent {
 
   crearUsuario(){
     this.crear.emit();
+  }
+
+  cambiarEstilo(){
+    this.estilo = !this.estilo;
   }
 }

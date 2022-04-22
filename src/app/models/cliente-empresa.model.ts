@@ -1,5 +1,5 @@
 export class ClienteEmpresa{
-    public id:string;
+    public id:number;
 
     public numero: string;
 
@@ -10,10 +10,9 @@ export class ClienteEmpresa{
 
     public comercial: string;
     public email: string;
-    public telefono: string;
+    public telefono: number;
 
     public direccion: string;
-    public localidad: string;
     public provincia: string;
     public cp: string;
     public poblacion: string;
@@ -34,33 +33,10 @@ export class ClienteEmpresa{
        this.email = json.email ?? '';
        this.telefono = json.telefono ?? '';
        this.direccion = json.direccion ?? '';
-       this.localidad = json.localidad ?? '';
        this.provincia = json.provincia ?? '';
        this.cp = json.cp ?? '';
        this.poblacion = json.poblacion ?? '';
        this.activo = (json.activo == '1');
        this.notas = json.notas ?? '';       
-    }
-
-    darParametros():any{
-        let parametros = {
-            id : this.id,
-            numero : this.numero,
-            alias : this.alias,
-            nombre : this.nombre,
-            razon_social : this.razon_social,
-            documento : this.documento,
-            comercial : this.comercial,
-            email : this.email,
-            telefono : this.telefono,
-            direccion : this.direccion,
-            localidad : this.localidad,
-            provincia : this.provincia,
-            cp : this.cp,
-            poblacion : this.cp+' '+this.localidad,
-            activo : (this.activo)? 1:0,
-            notas : this.notas
-        }
-        return parametros;
     }
 }

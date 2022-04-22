@@ -2,7 +2,6 @@ import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Injectable} from "@angular/core";
 import * as CryptoJS from 'crypto-js';
-import { ClienteEmpresa } from "../models/cliente-empresa.model";
 
 @Injectable()
 export class ClienteService{
@@ -28,11 +27,11 @@ export class ClienteService{
   deleteCliente(parametros: any) :Observable<any>{
     return this.http.delete<any>(this.url,{headers: this.cabecera, params: parametros});
   }
-  updateCliente(parametros: any){
-
+  updateCliente(parametros: any):Observable<any>{
+    return this.http.put<any>(this.url,parametros, {headers: this.cabecera});
   }
-  createCliente(parametros: any){
-
+  createCliente(parametros: any):Observable<any>{
+    return this.http.post<any>(this.url,parametros, {headers: this.cabecera});
   }
 
 }

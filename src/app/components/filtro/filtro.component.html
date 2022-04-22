@@ -1,4 +1,4 @@
-<div class="contenedor-principal">
+<div class="contenedor-principal" [ngClass]="{'oscuro':!estilo}">
     <div class="contenedor-selector-filtro">
         <div class="contenedor-codigo">
             <label>Numero:</label>
@@ -44,6 +44,14 @@
             <fa-icon  [icon]="faUser">
             </fa-icon> 
             Crear Usuario
+        </button>
+        <button class="btn luna" (click)="cambiarEstilo()" [ngClass]="{'noMostrar':!estilo}">
+            <fa-icon  [icon]="faMoon">
+            </fa-icon> 
+        </button>
+        <button class="btn sol" (click)="cambiarEstilo()"  [ngClass]="{'noMostrar':estilo}">
+            <fa-icon  [icon]="faSun">
+            </fa-icon> 
         </button>
     </div>
 </div>
