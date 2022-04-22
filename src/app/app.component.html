@@ -1,9 +1,9 @@
 <div class="contenedor-principal">
   <div class="contenedor-cabecera">
-    <app-filtro class="contenedor-filtro" (crear)="crearCliente()" (buscar)="buscarCliente($event)"></app-filtro>
+    <app-filtro class="contenedor-filtro" (crear)="botonCrearCliente()" (buscar)="buscarCliente($event)"></app-filtro>
   </div>
   <div class="contenedor-body">
-    <app-datos-clientes class="contenedor-datos-clientes" [clientePadre]="clienteSeleccionado" [ngClass]="{'noMostrar':!clientes}"></app-datos-clientes>
+    <app-datos-clientes class="contenedor-datos-clientes" [clientePadre]="clienteSeleccionado" (cerrar)=" cerrarDatos()" (crear)="crearCliente()" (borrar)="borrarCliente()" [ngClass]="{'noMostrar':!mostrarCliente}"></app-datos-clientes>
     <div class="contenedor-tabla-datos" >
       <div class="contenedor-tabla">
         <table class="table table-hover">

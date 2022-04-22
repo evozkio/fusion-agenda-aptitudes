@@ -1,6 +1,5 @@
 import { Component, EventEmitter, Output} from '@angular/core';
 import {faSearch,faTrash,faUser} from '@fortawesome/free-solid-svg-icons'
-import { ClienteService } from 'src/app/services/cliente.service';
 
 @Component({
   selector: 'app-filtro',
@@ -15,17 +14,13 @@ export class FiltroComponent {
   activo:boolean = true;
 
   @Output() buscar = new EventEmitter<any>();
-  @Output() crear = new EventEmitter();
+  @Output() crear = new EventEmitter()
 
 
   faUser=faUser;
   faSearch=faSearch;
   faTrash=faTrash;
   bsConfig:any;
-  
-
-  constructor(private clienteSvc: ClienteService){
-  }
 
 
   actionBuscar(){
@@ -43,6 +38,4 @@ export class FiltroComponent {
   crearUsuario(){
     this.crear.emit();
   }
-
-
 }

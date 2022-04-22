@@ -9,13 +9,13 @@ import { ClienteService } from './services/cliente.service';
 
 export class AppComponent {
 
-
   cuerpoTabla:any;
   numeroElementos:number=0;
   pagina:number = 1;
   clientes: ClienteEmpresa[] = [];
   clienteSeleccionado: ClienteEmpresa = new ClienteEmpresa({});
   mostrarCliente:boolean = false;
+  
   filtros= {
     alias : '',
     activo : 1,
@@ -85,12 +85,38 @@ export class AppComponent {
     );
   }
 
-  crearCliente(){
+  botonCrearCliente(){
     this.clienteSeleccionado = new ClienteEmpresa({});
+    this.mostrarCliente=true;
   }
 
   buscarCliente(filtro:any){
     this.filtros = filtro;
     this.obtenerClientes();    
+  }
+
+  crearCliente(){
+
+  }
+
+  modificarCliente(){
+
+  }
+
+  borrarCliente(){
+    let filtro={
+      id : this.clienteSeleccionado.id
+    }
+    this.clienteSvc.deleteCliente(filtro).subscribe(
+      (data) => { 
+        console.log(data);
+        this.obtenerClientes();
+      },
+      (error) => {alert("No se han podido cargar los datos!");}
+    );
+  }
+
+  cerrarDatos(){
+    this.mostrarCliente=false;
   }
 }
