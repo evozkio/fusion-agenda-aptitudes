@@ -3,10 +3,7 @@
     <app-filtro class="contenedor-filtro" (crear)="botonCrearCliente()" (buscar)="buscarCliente($event)"></app-filtro>
   </div>
   <div class="contenedor-body">
-    <app-datos-clientes class="contenedor-datos-clientes" [clientePadre]="clienteSeleccionado" (cerrar)=" cerrarDatos()"
-      (crear)="crearCliente()" (borrar)="borrarCliente()" (modificar)="modificarCliente()"
-      [ngClass]="{'noMostrar':!mostrarCliente}">
-    </app-datos-clientes>
+   
     <div class="contenedor-tabla-datos" id="contenedor-tabla">
       <table class="table table-hover">
         <thead>
@@ -33,11 +30,13 @@
               </span>
             </th>
             <td scope="col" class="comercial" [ngClass]="{'noMostrar': numeroColumnas<3}">
-              {{item.comercial}}
+              <span class="text-truncate ">
+                {{item.comercial}}
+              </span>
             </td>
             <td scope="col" class="email" [ngClass]="{'noMostrar': numeroColumnas<5}">
               <span class="text-truncate ">
-                {{cogerPrimerElementoComa(item.email)}}
+                {{item.email}}
               </span>
             </td>
             <td scope="col" class="provincia" [ngClass]="{'noMostrar': numeroColumnas<6}">
@@ -65,5 +64,9 @@
         </tfoot>
       </table>
     </div>
+    <app-datos-clientes class="contenedor-datos-clientes" [clientePadre]="clienteSeleccionado" (cerrar)=" cerrarDatos()"
+    (crear)="crearCliente()" (borrar)="borrarCliente()" (modificar)="modificarCliente()"
+    [ngClass]="{'noMostrar':!mostrarCliente}">
+  </app-datos-clientes>
   </div>
 </div>

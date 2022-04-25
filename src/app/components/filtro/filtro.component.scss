@@ -1,9 +1,7 @@
 .contenedor-principal{
     background-color: white;
-    height: 100%;
+   
     overflow: hidden;
-    display: grid;
-    grid-template-columns: 1fr 250px;
     border-radius: 0 0 5px 5px;
     padding: 5px 10px;
 
@@ -30,7 +28,7 @@
     }
     .contenedor-botonera{
         display: flex;
-        justify-content: end;
+        justify-content: right;
         align-items: center;
         gap: 5px;
         .btn-primary:focus{
@@ -55,4 +53,26 @@
 .oscuro{
     background-color: #171010;
     color: white;
+}
+
+.columnas{
+    height: 80px;
+    display: grid;
+    grid-template-columns: 1fr 250px;
+    overflow: hidden;
+}
+
+.filas{
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 10px;
+    .contenedor-botonera{
+        display: flex;
+        justify-content: left;
+    }
+    .contenedor-selector-filtro{
+        display: flex;
+        flex-direction: column;
+    }
+
 }

@@ -61,14 +61,11 @@ export class AppComponent {
     if (div_tabla !== null) {
       ancho_div = div_tabla.offsetWidth;
       if (ancho_div > total) {
-   
         return 7;
       }
     
       total = total - fila_Poblacion;
       if (ancho_div > total) {
-        console.log(ancho_div)
-        console.log(total)
         return 6;
       }
       total = total - fila_Provincia;
@@ -128,12 +125,11 @@ export class AppComponent {
           .sort((a: ClienteEmpresa, b: ClienteEmpresa) =>
             a.nombre.localeCompare(b.nombre)
           );
-
-        this.clienteSeleccionado = this.clientes[0];
+        this.clienteSeleccionado = (this.clientes.length == 0)?new ClienteEmpresa({}) : this.clientes[0];
         this.pagina = 1;
       },
       (error) => {
-        alert('No se han podido cargar los datos!');
+        alert(error.error.message);
       }
     );
   }
@@ -147,10 +143,12 @@ export class AppComponent {
           );
       },
       (error) => {
-        alert('No se han podido cargar los datos!');
+        alert(error.error.message);
       }
     );
   }
+
+  
 
   botonCrearCliente() {
     this.clienteSeleccionado = new ClienteEmpresa({});
@@ -167,9 +165,10 @@ export class AppComponent {
     this.clienteSvc.createCliente(this.darParametrosCrear()).subscribe(
       (data) => {
         this.actualizarClientes();
+        alert('Cliente se ha creado');
       },
       (error) => {
-        alert('No se ha podido crear Cliente');
+        alert(error.error.message);
       }
     );
   }
@@ -178,9 +177,10 @@ export class AppComponent {
     this.clienteSvc.updateCliente(this.darParametrosModificar()).subscribe(
       (data) => {
         this.actualizarClientes();
+        alert('Cliente se ha modificado');
       },
       (error) => {
-        alert('No se ha podido crear Cliente');
+        alert(error.error.message);
       }
     );
   }
@@ -192,9 +192,10 @@ export class AppComponent {
     this.clienteSvc.deleteCliente(filtro).subscribe(
       (data) => {
         this.obtenerClientes();
+        alert('Cliente eliminado');
       },
       (error) => {
-        alert('No se ha podido Borrar Cliente');
+        alert(error.error.message);
       }
     );
   }
@@ -241,12 +242,9 @@ export class AppComponent {
       telefono: this.clienteSeleccionado.telefono,
       comercial: this.clienteSeleccionado.comercial,
       documento: this.clienteSeleccionado.documento,
-      email:
-        this.clienteSeleccionado.email == ''
-          ? null
-          : this.clienteSeleccionado.email,
+      email:this.clienteSeleccionado.email,
       notas: this.clienteSeleccionado.notas,
-      codigo_postal: this.clienteSeleccionado.cp,
+      codigo_postal: this.clienteSeleccionado.cp
     };
 
     return parametros;
