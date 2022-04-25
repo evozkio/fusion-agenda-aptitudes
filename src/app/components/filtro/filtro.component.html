@@ -3,55 +3,70 @@
         <div class="contenedor-codigo">
             <label>Numero:</label>
             <div class="contenedor-input input-group">
-                <input class="form-control form-control-sm" type="text"  [(ngModel)]='codigo' />
-                <button class="btn btn-sm btn-outline-danger input-group-append" (click)="codigo = ''"><fa-icon  [icon]="faTrash"></fa-icon></button>
+                <input class="form-control form-control-sm" type="text" [(ngModel)]='codigo' />
+                <button class="btn btn-sm btn-outline-danger input-group-append" (click)="codigo = ''">
+                    <fa-icon [icon]="faTrash"></fa-icon>
+                </button>
             </div>
         </div>
         <div class="contenedor-alias">
             <label>Alias:</label>
             <div class="contenedor-input input-group">
-                <input class="form-control form-control-sm" type="text" [(ngModel)]='alias'/>
-                <button class="btn btn-sm btn-outline-danger  input-group-append" (click)="alias = ''"><fa-icon  [icon]="faTrash"></fa-icon></button>
+                <input class="form-control form-control-sm" type="text" [(ngModel)]='alias' />
+                <button class="btn btn-sm btn-outline-danger  input-group-append" (click)="alias = ''">
+                    <fa-icon [icon]="faTrash"></fa-icon>
+                </button>
             </div>
         </div>
         <div class="documento">
             <label>Documento:</label>
             <div class="contenedor-input input-group">
-                <input class="form-control form-control-sm" type="text" [(ngModel)]='documento'/>
-                <button class="btn btn-sm btn-outline-danger  input-group-append" (click)="documento = ''"><fa-icon  [icon]="faTrash"></fa-icon></button>
+                <input class="form-control form-control-sm" type="text" [(ngModel)]='documento' />
+                <button class="btn btn-sm btn-outline-danger  input-group-append" (click)="documento = ''">
+                    <fa-icon [icon]="faTrash"></fa-icon>
+                </button>
             </div>
         </div>
         <div class="provincia">
             <label>Provincia:</label>
             <div class="contenedor-input input-group">
-                <input class="form-control form-control-sm" type="text" [(ngModel)]='provincia'/>
-                <button class="btn btn-sm btn-outline-danger  input-group-append" (click)="provincia = ''"><fa-icon  [icon]="faTrash"></fa-icon></button>
+                <input class="form-control form-control-sm" type="text" [(ngModel)]='provincia' />
+                <button class="btn btn-sm btn-outline-danger  input-group-append" (click)="provincia = ''">
+                    <fa-icon [icon]="faTrash"></fa-icon>
+                </button>
             </div>
         </div>
-        <div class="activo" >
+        <div class="activos">
             <label>Activo:</label>
-            <div class="contenedor-checkbox form-check form-switch">
-                <input type="checkbox" class="form-check-input" [(ngModel)]='activo'>
+            <div class="contenedor-input input-group">
+                <select class="form-select form-select-sm"   [(ngModel)]='activo'>
+                    <option value="Todos">Todos</option>
+                    <option value="Activos">Activos</option>
+                    <option value="No Activos">No Activos</option>
+                </select>
+                <button class="btn btn-sm btn-outline-danger  input-group-append" (click)="activo = 'Todos'">
+                    <fa-icon [icon]="faTrash"></fa-icon>
+                </button>
             </div>
         </div>
     </div>
     <div class="contenedor-botonera">
-        <button class="btn btn-primary" (click)="actionBuscar()"> 
-            <fa-icon  [icon]="faSearch">
+        <button class="btn btn-primary" (click)="actionBuscar()">
+            <fa-icon [icon]="faSearch">
             </fa-icon>
         </button>
         <button class="btn btn-success" (click)="crearUsuario()">
-            <fa-icon  [icon]="faUser">
-            </fa-icon> 
+            <fa-icon [icon]="faUser">
+            </fa-icon>
             Crear Usuario
         </button>
         <button class="btn luna" (click)="cambiarEstilo()" [ngClass]="{'noMostrar':!estilo}">
-            <fa-icon  [icon]="faMoon">
-            </fa-icon> 
+            <fa-icon [icon]="faMoon">
+            </fa-icon>
         </button>
-        <button class="btn sol" (click)="cambiarEstilo()"  [ngClass]="{'noMostrar':estilo}">
-            <fa-icon  [icon]="faSun">
-            </fa-icon> 
+        <button class="btn sol" (click)="cambiarEstilo()" [ngClass]="{'noMostrar':estilo}">
+            <fa-icon [icon]="faSun">
+            </fa-icon>
         </button>
     </div>
 </div>

@@ -1,34 +1,52 @@
 .contenedor-principal{
     height: 100%;
     overflow-y: hidden;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    display: grid;
+    grid-template-rows: 1fr 50px;
     background-color: #362222;
+    border-radius: 5px;
+    overflow-y: hidden;
     label{
         color: white;
     }
-    border-radius: 5px;
-    padding: 10px;
-    overflow-y: auto;
-    .contenedor{
-        display: flex;
-        gap: 5px;
-        div{
-            width: 100%;
+    .contenedor-inputs{
+        height: 100%;
+        overflow-y: auto;
+        padding: 10px;
+        .contenedor{
+            display: flex;
+            gap: 5px;
+            .comercial{
+                width: 100%;
+            }
+            .telefono{
+                width: 110px;
+                min-width: 110px;
+            }
+            .documento{
+                width: 110px;
+                min-width: 110px;
+            }
+
+            .cp{
+                width: 90px;
+                min-width: 90px;
+            }
+      
         }
-    }
-    .activo{
-        color:whitesmoke;
-        gap: 5px;
-        display: flex;
-        align-items: center;
-        .form-check{
-            padding-top: 3px;
+        .activo{
+            color:whitesmoke;
+            gap: 5px;
+            display: flex;
+            align-items: center;
+            .form-check{
+                padding-top: 3px;
+            }
+            .form-check-input{
+                box-shadow: none;
+            }
         }
-        .form-check-input{
-            box-shadow: none;
-        }
+   
     }
     .botonera{
         padding: 10px;

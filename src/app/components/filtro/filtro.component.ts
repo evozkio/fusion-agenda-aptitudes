@@ -11,7 +11,7 @@ export class FiltroComponent {
   alias:string = '';
   documento:string = '';
   provincia:string = '';
-  activo:boolean = true;
+  activo:string = 'Todos';
   estilo:boolean = false;
 
   @Output() buscar = new EventEmitter<any>();
@@ -31,7 +31,7 @@ export class FiltroComponent {
       alias : this.alias,
       documento : this.documento,
       provincia : this.provincia,
-      activo : this.activo ? 1:0
+      activo : this.activo=='Todos' ? '': this.activo=='Activos' ? 1: 0
     }
 
     this.buscar.emit(filtros);

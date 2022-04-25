@@ -3,74 +3,67 @@
     <app-filtro class="contenedor-filtro" (crear)="botonCrearCliente()" (buscar)="buscarCliente($event)"></app-filtro>
   </div>
   <div class="contenedor-body">
-    <app-datos-clientes class="contenedor-datos-clientes" 
-      [clientePadre]="clienteSeleccionado" 
-      (cerrar)=" cerrarDatos()" 
-      (crear)="crearCliente()" 
-      (borrar)="borrarCliente()" 
-      (modificar)="modificarCliente()" 
+    <app-datos-clientes class="contenedor-datos-clientes" [clientePadre]="clienteSeleccionado" (cerrar)=" cerrarDatos()"
+      (crear)="crearCliente()" (borrar)="borrarCliente()" (modificar)="modificarCliente()"
       [ngClass]="{'noMostrar':!mostrarCliente}">
     </app-datos-clientes>
-    <div class="contenedor-tabla-datos" >
-      <div class="contenedor-tabla">
-        <table class="table table-hover">
-          <thead>
-            <tr>
-              <th scope="col" class="numero" th>
-              <th scope="col" class="nombre">Nombre</th>
-              <th scope="col" class="comercial">Comercial</th>
-              <th scope="col" class="email">Email</th>
-              <th scope="col" class="telefono">Provincia</th>
-              <th scope="col" class="localidad">Población</th>
-              <th scope="col" class="provincia">Telefono</th>
-            </tr>
-          </thead>
-          <tbody id="cuerpo-tabla">
-            <tr class="datos" *ngFor="let item of clientes| slice: (pagina-1)*this.numeroElementos : pagina*this.numeroElementos" (click) ="seleccionCliente(item)">
-              <td scope="col" class="numero">
-                {{item.numero}}
-              </td>
-              <th scope="col" class="nombre">
-                <span class="text-truncate ">
-                  {{item.nombre}}
-                </span>
-              </th>
-              <td scope="col" class="comercial">
-                {{item.comercial}}
-              </td>
-              <td scope="col" class="email">
-                <span class="text-truncate ">
-                  {{cogerPrimerElementoComa(item.email)}}
-                </span>
-              </td>
-              <td scope="col" class="provincia">
-                <span class="text-truncate ">
-                  {{item.provincia}}
-                </span>
-              
-              </td>
-              <td scope="col" class="poblacion">
-                <span class="text-truncate ">
-                  {{item.poblacion}}
-                </span>
-              </td>
-              <td scope="col" class="telefono">
-                {{item.telefono}}
-              </td>
-            </tr>
-          </tbody>
-          <tfoot>
-            <div>Lineas: {{clientes.length}}</div>
-            <pagination class="paginacion my-pagination" [totalItems]="clientes.length" [boundaryLinks]="true"  
-              previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;" [(ngModel)]="pagina" 
-              [itemsPerPage]="numeroElementos"
-              [maxSize]="7"
-              [rotate]="true"
-              >
-            </pagination>
-          </tfoot>
-        </table>
-      </div>
+    <div class="contenedor-tabla-datos" id="contenedor-tabla">
+      <table class="table table-hover">
+        <thead>
+          <tr class="filas">
+            <th scope="col" class="numero columna"  [ngClass]="{'noMostrar':numeroColumnas<4}" th>
+            <th scope="col" class="alias">Alias</th>
+            <th scope="col" class="comercial" [ngClass]="{'noMostrar': numeroColumnas<3}">Comercial</th>
+            <th scope="col" class="email"     [ngClass]="{'noMostrar': numeroColumnas<5}">Email</th>
+            <th scope="col" class="provincia" [ngClass]="{'noMostrar': numeroColumnas<6}">Provincia</th>
+            <th scope="col" class="poblacion" [ngClass]="{'noMostrar': numeroColumnas<7}">Población</th>
+            <th scope="col" class="telefono"  [ngClass]="{'noMostrar': numeroColumnas<2}">Telefono</th>
+          </tr>
+        </thead>
+        <tbody id="cuerpo-tabla">
+          <tr class="datos filas"
+            *ngFor="let item of clientes| slice: (pagina-1)*this.numeroElementos : pagina*this.numeroElementos"
+            (click)="seleccionCliente(item)">
+            <td scope="col" class="numero" [ngClass]="{'noMostrar':numeroColumnas<4}">
+              {{item.numero}}
+            </td>
+            <th scope="col" class="alias" >
+              <span class="text-truncate ">
+                {{item.alias}}
+              </span>
+            </th>
+            <td scope="col" class="comercial" [ngClass]="{'noMostrar': numeroColumnas<3}">
+              {{item.comercial}}
+            </td>
+            <td scope="col" class="email" [ngClass]="{'noMostrar': numeroColumnas<5}">
+              <span class="text-truncate ">
+                {{cogerPrimerElementoComa(item.email)}}
+              </span>
+            </td>
+            <td scope="col" class="provincia" [ngClass]="{'noMostrar': numeroColumnas<6}">
+              <span class="text-truncate ">
+                {{item.provincia}}
+              </span>
+
+            </td>
+            <td scope="col" class="poblacion" [ngClass]="{'noMostrar': numeroColumnas<7}">
+              <span class="text-truncate ">
+                {{item.poblacion}}
+              </span>
+            </td>
+            <td scope="col" class="telefono" [ngClass]="{'noMostrar': numeroColumnas<2}">
+              {{item.telefono}}
+            </td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <div>Lineas: {{clientes.length}}</div>
+          <pagination class="paginacion my-pagination" [totalItems]="clientes.length" [boundaryLinks]="true"
+            previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;" [(ngModel)]="pagina"
+            [itemsPerPage]="numeroElementos" [maxSize]="7" [rotate]="true">
+          </pagination>
+        </tfoot>
+      </table>
     </div>
   </div>
 </div>
