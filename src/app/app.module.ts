@@ -10,7 +10,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { ClienteService } from "./services/cliente.service";
 import { HttpClientModule } from "@angular/common/http";
-import { DatosClientesComponent } from './datos-clientes/datos-clientes.component';
+import { DatosClientesComponent } from './components/datos-clientes/datos-clientes.component';
 
 @NgModule({
   declarations: [
