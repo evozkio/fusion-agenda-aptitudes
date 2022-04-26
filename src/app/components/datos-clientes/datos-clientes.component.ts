@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { ClienteEmpresa } from '../models/cliente-empresa.model';
+import { ClienteEmpresa } from 'src/app/models/cliente-empresa.model';
 
 
 @Component({
